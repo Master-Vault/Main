@@ -1,0 +1,39 @@
+{
+  "name": "main",
+  "version": "1.0.0",
+  "description": "Production",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Master-Vault/Main.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Master-Vault/Main/issues"
+  },
+  "homepage": "https://github.com/Master-Vault/Main#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "babel-loader": "^8.2.5",
+    "concurrently": "^7.2.2",
+    "cross-env": "^7.0.3",
+    "express": "^4.18.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mongoose": "^6.4.4",
+    "node-fetch": "^3.2.8",
+    "nodemon": "^2.0.19",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router": "^6.3.0",
+    "react-switch": "^7.0.0",
+    "sass": "^1.53.0",
+    "sass-loader": "^13.0.2",
+    "webpack": "^5.73.0",
+    "with-router": "^1.0.1"
+  }
+}
