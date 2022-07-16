@@ -6,7 +6,8 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development node server/server.js",
     "build": " webpack",
-    "dev": "NODE_ENV=development nodemon server/server.js"
+    "dev": "NODE_ENV=development nodemon server/server.js & NODE_ENV=development webpack serve --open",
+    "windows-dev": "concurrently \"NODE_ENV=development node server/server.js\" \"NODE_ENV=development webpack serve --open\""
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/Master-Vault/Main#readme",
   "dependencies": {
+    "autoprefixer": "10.4.5",
     "axios": "^0.27.2",
     "babel-loader": "^8.2.5",
     "concurrently": "^7.2.2",
@@ -32,6 +34,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0",
     "react-switch": "^7.0.0",
     "sass": "^1.53.0",
     "sass-loader": "^13.0.2",
@@ -39,6 +42,22 @@
     "with-router": "^1.0.1"
   },
   "devDependencies": {
-    "webpack-cli": "^4.10.0"
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.2.3",
+    "concurrently": "^5.0.0",
+    "cross-env": "^6.0.3",
+    "css-loader": "^6.5.1",
+    "eslint": "^7.17.0",
+    "eslint-plugin-react": "^7.21.5",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "nodemon": "^1.18.9",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.64.1",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.3",
+    "webpack-hot-middleware": "^2.24.3"
   }
 }
