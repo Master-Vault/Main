@@ -1,0 +1,188 @@
+* {
+  margin: 0px;
+  padding: 0;
+  font-family: 'Belgrano', serif;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  height: 10%;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: rgb(60, 130, 154);
+  padding: 0px 20px;
+}
+
+main {
+  /* background-color: yellow; */
+  height: 100%;
+}
+
+.left-head-container {
+  display: flex;
+}
+
+.logo-png {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.right-head-container {
+  display: flex;
+}
+
+.right-head-text {
+  padding: 0px 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.right-head-text:hover {
+  color: pink;
+}
+
+.logo {
+  font-size: 30px;
+  color: white;
+  font-family: 'Allerta Stencil', sans-serif;
+}
+
+.body-heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0px 40px;
+  /* border-bottom: 2px green solid; */
+  align-items: center;
+  margin-bottom: 20px;
+  /* background-color: blue; */
+  width: 100%;
+}
+
+button {
+  margin-right: 20px;
+  height: 30px;
+  width: 100px;
+  border-radius: 10px;
+  border: black;
+}
+
+button:hover {
+  background-color: rgba(81, 197, 197, 0.596);
+  color: black;
+  cursor: pointer;
+}
+
+button:active {
+  background: yellow;
+}
+
+.green-btnSecondary {
+  background-color: rgb(168, 215, 168);
+}
+
+.red-btnSecondary {
+  background-color: rgb(220, 167, 167);
+}
+
+.foodContainer {
+  padding: 0px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  width: 100%;
+}
+
+.foodCard {
+  padding: 20px;
+  width: 20%;
+  border: 2px green solid;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.user-info-container,
+.nutrition-total {
+  padding: 0px 20px;
+}
+
+.typ-head {
+  margin-bottom: 10px;
+}
+
+.typ-text,
+.typ-imp-text {
+  display: flex;
+  margin: 5px 0px;
+}
+
+.cardEditFood {
+  padding: 0px 20px;
+}
+
+.editFoodFields {
+  margin: 20px 0px;
+}
+
+.nutrition-current,
+.nutrition-goal,
+.nutrition-remaining {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 20px;
+  border: black 1px solid;
+  border-radius: 10px;
+  margin-top: 10px;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.nutrition-current {
+  background-color: rgba(158, 158, 219, 0.366);
+}
+
+.nutrition-goal {
+  background-color: rgb(175, 222, 175);
+}
+
+.nutrition-remaining {
+  background-color: rgb(226, 175, 175);
+}
+
+.macroCount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* padding-left: 40px; */
+}
+
+.typ-text {
+  margin-right: 0px 10px;
+}
+
+.mainSection {
+  display: flex;
+  /* background-color: cadetblue; */
+}
+
+.fixed-container {
+  flex: 0.4;
+}
+
+.aboveFoodCards {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  /* background-color: red; */
+}
+
+.pageHeader {
+  flex: 1;
+}
+
+.editFoodPages {
+  display: flex;
+}
