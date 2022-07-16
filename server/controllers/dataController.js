@@ -2,7 +2,17 @@ const dataModels = require('../models/dataModels');
 const fetch = require('node-fetch');
 const dataController = {};
 
-dataController.getTransaction = (req, res, next) => {
+dataController.deleteDatabase = (req, res, next) => {
+  dataModels.Transaction.deleteMany({}).catch((err) => {
+    console.log('dataController getTransaction error: ', err);
+  });
+  dataModels.Balance.deleteMany({}).catch((err) => {
+    console.log('dataController getBalance error: ', err);
+  });
+  next();
+};
+
+dataController.syncTransaction = (req, res, next) => {
   const data = {
     client_id: '62d187a3360d1f0012b175e4',
     secret: '20d614c7f64862038d1917f7a1d847',
@@ -21,9 +31,6 @@ dataController.getTransaction = (req, res, next) => {
     .then((response) => response.json())
 
     .then((data) => {
-      dataModels.Transaction.deleteMany({}).catch((err) => {
-        console.log('dataController getTransaction error: ', err);
-      });
       res.locals.data = [];
       for (let i = 0; i < 10; i++) {
         // console.log('Success:', data.transactions[i]);
@@ -47,7 +54,7 @@ dataController.getTransaction = (req, res, next) => {
     });
 };
 
-dataController.getBalance = (req, res, next) => {
+dataController.syncBalance = (req, res, next) => {
   const data = {
     client_id: '62d187a3360d1f0012b175e4',
     secret: '20d614c7f64862038d1917f7a1d847',
@@ -64,11 +71,11 @@ dataController.getBalance = (req, res, next) => {
     .then((response) => response.json())
 
     .then((data) => {
-      console.log('dataa: ', data);
-      dataModels.Balance.deleteMany({}).catch((err) => {
-        console.log('dataController getBalance error: ', err);
-      });
-      res.locals.data = [];
+      // console.log('data: ', data);
+      // dataModels.Balance.deleteMany({}).catch((err) => {
+      //   console.log('dataController getBalance error: ', err);
+      // });
+      // res.locals.data = [];
       for (let i = 0; i < data.accounts.length; i++) {
         // console.log('Success:', data.accounts[i]);
         const { account_id, balances, name, subtype } = data.accounts[i];
@@ -79,7 +86,7 @@ dataController.getBalance = (req, res, next) => {
           name: name,
           subtype: subtype,
         });
-        res.locals.data.push(data.accounts[i]);
+        // res.locals.data.push(data.accounts[i]);
       }
 
       next();
@@ -87,6 +94,29 @@ dataController.getBalance = (req, res, next) => {
 
     .catch((error) => {
       console.error('Error:', error);
+    });
+};
+
+dataController.getTransaction = (req, res, next) => {
+  dataModels.Transaction.find()
+    .then((data) => {
+      res.locals.data = {};
+      res.locals.data.transactions = data;
+      next();
+    })
+    .catch((err) => {
+      console.log('datacontroller getTransaction error: ', err);
+    });
+};
+
+dataController.getBalance = (req, res, next) => {
+  dataModels.Balance.find()
+    .then((data) => {
+      res.locals.data.balance = data;
+      next();
+    })
+    .catch((err) => {
+      console.log('datacontroller getBalance error: ', err);
     });
 };
 
