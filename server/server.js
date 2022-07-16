@@ -11,17 +11,12 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/api', apiRouter);
 
-app.get('/', (req, res) => {
-  return res.status(200);
-});
-
 /**
  * handle requests for static files
  */
 // app.use(express.static(path.resolve(__dirname, '../client')));
 // statically serve everything in the build folder on the route '/build'
 // app.use('/build', express.static(path.join(__dirname, '../build')));
-// serve index.html on the route '/'
 
 /**
  * Global error handler
