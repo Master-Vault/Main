@@ -4,7 +4,9 @@
   "description": "Production",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cross-env NODE_ENV=development node server/server.js",
+    "build": " webpack",
+    "dev": "NODE_ENV=development nodemon server/server.js"
   },
   "repository": {
     "type": "git",
@@ -25,7 +27,7 @@
     "express": "^4.18.1",
     "html-webpack-plugin": "^5.5.0",
     "mongoose": "^6.4.4",
-    "node-fetch": "^3.2.8",
+    "node-fetch": "^2.3.0",
     "nodemon": "^2.0.19",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -35,5 +37,8 @@
     "sass-loader": "^13.0.2",
     "webpack": "^5.73.0",
     "with-router": "^1.0.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.10.0"
   }
 }
