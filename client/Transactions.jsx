@@ -1,8 +1,21 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 
 const TransactionsComponent = props => {
+  useEffect(() => {
+    console.log('prefetch')
+    fetch('/api')
+    .then((res) => res.json())
+    .then((transaction) => {
+      console.log('check fetch')
+      console.log(transaction)
+    })
+
+  },[]);
+    
+ 
+
   return(
-    <div> Transactions </div>
+    <div> </div>
   )
 }
 export default TransactionsComponent;
