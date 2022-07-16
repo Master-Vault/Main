@@ -9,3 +9,7 @@ module.exports = router;
 router.get('/', dataController.getTransaction, (req, res) => {
   res.status(200).json(res.locals.data);
 });
+
+router.get('/balance', dataController.getBalance, (req, res) => {
+  res.status(200).json(res.locals.data);
+});
