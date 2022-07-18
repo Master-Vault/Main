@@ -5,11 +5,21 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 const apiRouter = require('./routes/api');
+const userController = require('./controllers/userController.js');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/api', apiRouter);
+
+/**
+ * signup
+ */
+
+app.post('/signup', userController.createUser, (req, res) => {
+  // what should happen here on successful sign up?
+  res.status(301).send('Created account');
+});
 
 /**
  * handle requests for static files
