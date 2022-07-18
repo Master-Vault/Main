@@ -44,8 +44,9 @@ class MainContainer extends Component {
       balance: [],
       sumArray: [],
       monthlyIncome: 5000,
-      synced: false,
+      // synced: false,
     };
+    // this.updateSynced = this.updateSynced.bind(this);
   }
 
   componentDidMount() {
@@ -53,11 +54,30 @@ class MainContainer extends Component {
     fetch('/api')
       .then((response) => response.json())
       .then((data) => {
-        // spread out our state and update our transactions array
         this.setState({
           ...this.state,
           transactions: data.transactions,
           balance: data.balance,
+        });
+
+        // spread out our state and update our transactions array
+        const transactionsSum = this.state.transactions.reduce(
+          (acc, el) => {
+            if (el.account_id === 'bZPxWjNA5Wf4oJE95B1KTlajybobDVu3Gap6P') {
+              acc[0] += Number(el.amount);
+              return acc;
+            }
+            if (el.account_id === 'mv35n9oz4nuqLwonrkbRtGrA4ZlZ5ViA7xZQ8') {
+              acc[1] += Number(el.amount);
+              return acc;
+            }
+          },
+          [0, 0]
+        );
+
+        this.setState({
+          ...this.state,
+          sumArray: transactionsSum,
         });
       });
 
@@ -99,6 +119,27 @@ class MainContainer extends Component {
     }
   }
 
+  componentDidUpdate() {
+    // make call to our endpoint and populate
+    if (this.state.synced) {
+      fetch('/api')
+        .then((response) => response.json())
+        .then((data) => {
+          this.setState({
+            ...this.state,
+            transactions: data.transactions,
+            balance: data.balance,
+            // synced: false,
+          });
+        });
+    }
+  }
+
+  // updateSynced() {
+  //   this.setState({
+  //     synced: true,
+  //   });
+  // }
   render() {
     return (
       <>

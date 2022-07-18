@@ -1,0 +1,129 @@
+* {
+  font-family: 'Belgrano', serif;
+  margin: 5px;
+}
+
+img {
+  height: 60px;
+  width: 60px;
+}
+.mainContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 100px 300px 300px 250px;
+  gap: 20px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    'Nav1 Nav1 Nav1 Nav4'
+    'Balances Cash-Flow Transactions Transactions'
+    'Monthly-Expense Monthly-Expense Transactions Transactions'
+    'Trend Forecast Budget Assets';
+}
+
+.Card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 1px 0px 15px #00000030;
+  padding: 2rem;
+}
+
+.Navigation {
+  grid-area: Nav4;
+}
+
+.header-container {
+  grid-area: Nav1;
+  width: 100%;
+}
+
+.MonthlyIncomeCard {
+  grid-area: Monthly-Income;
+}
+
+.MonthlyExpenseCard {
+  grid-area: Monthly-Expense;
+}
+
+.CashFlowCard {
+  grid-area: Cash-Flow;
+}
+
+.ForecastCard {
+  grid-area: Forecast;
+}
+
+.AssetsCard {
+  grid-area: Assets;
+}
+
+.BudgetCard {
+  grid-area: Budget;
+}
+
+.BalanceCard {
+  grid-area: Balances;
+  overflow-y: scroll;
+}
+
+.TrendChartCard {
+  grid-area: Trend;
+}
+
+.TransactionsCard {
+  max-height: 100%;
+  grid-area: Transactions;
+  overflow-y: scroll;
+}
+
+.transactionItems {
+  display: flex;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 1px 0px 15px #00000030;
+  padding: 1rem;
+  margin: 1rem 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.balanceItems {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 1px 0px 15px #00000030;
+  align-items: left;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.transactions-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHeader {
+  font-size: 1.25rem;
+  font-weight: 600;
+  background-image: linear-gradient(to left, #553c9a, #b393d3);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  margin-bottom: 20px;
+}
+
+.name,
+.acc_name {
+  font-size: 1rem;
+}
+
+.date,
+.category,
+.balance {
+  font-size: 0.75rem;
+  color: rgb(94, 92, 92);
+}
+
+.date {
+  padding: 10px 0;
+}

@@ -15,7 +15,7 @@ const TransactionsCard = (props) => {
       <div className='cardHeader'>Transaction History</div>
       {transactions}
     </div>
-  )
+  );
 };
 
 export default TransactionsCard;

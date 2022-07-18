@@ -8,7 +8,7 @@ const MonthlyExpenseCard = (props) => {
       <div className='cardHeader'> Monthly Expenses </div>
       <div className='cardAmount'>${monthlyExpenses}</div>
     </div>
-  )
+  );
 };
 
 export default MonthlyExpenseCard;

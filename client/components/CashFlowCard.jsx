@@ -10,7 +10,7 @@ const CashFlowCard = (props) => {
       <div className='cardHeader'> Cash Flow </div>
       <div className='cardAmount'>${resultToDecimal}</div>
     </div>
-  )
+  );
 };
 
 export default CashFlowCard;

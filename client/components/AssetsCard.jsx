@@ -4,7 +4,7 @@ const AssetsCard = (props) => {
   return (
     <div className='stats-accounts-card stats-assets card'>
       <div className='cardHeader'>Assets</div>
-      $91,000
+      Real Estate: $91,000
     </div>
   )
 };
