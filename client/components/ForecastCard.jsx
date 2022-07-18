@@ -4,7 +4,7 @@ const ForecastCard = (props) => {
   return (
     <>
       <div className='stats-overview-card'>
-        <div className='cardHeader'> Forecast </div>
+        <div className='cardHeader'>Annual Forecast </div>
         <div className='cardAmount'>$63,151</div>
       </div>
     </>
