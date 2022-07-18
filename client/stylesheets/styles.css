@@ -1,7 +1,7 @@
 .mainContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 150px 1fr 1fr 1fr;
+  grid-template-rows: 150px 200px 200px 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
@@ -49,4 +49,5 @@
 
 .TransactionsCard {
   grid-area: Transactions;
+  overflow: hidden;
 }
