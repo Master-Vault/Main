@@ -2,7 +2,7 @@ import React from 'react';
 
 const TransactionItem = (props) => {
   const { amount, name, date, category } = props.transactions;
-  console.log(category);
+  // console.log(category);
   return (
     <div className='transactionItems'>
       <div className='transactions-left'>

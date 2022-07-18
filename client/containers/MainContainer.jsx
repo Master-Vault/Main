@@ -10,6 +10,7 @@ import BudgetCard from '../components/BudgetCard.jsx';
 import BalanceCard from '../components/BalanceCard.jsx';
 import TrendChartCard from '../components/TrendChartCard.jsx';
 import TransactionsCard from '../components/TransactionsCard.jsx';
+import Header from '../components/Header.jsx';
 
 class MainContainer extends Component {
   // constructor(props) {
@@ -59,7 +60,7 @@ class MainContainer extends Component {
         // spread out our state and update our transactions array
         const balancesArray = this.state.transactions.reduce(
           (acc, el) => {
-            console.log('el:', el);
+            // console.log('el:', el);
             if (el.account_id === 'bZPxWjNA5Wf4oJE95B1KTlajybobDVu3Gap6P') {
               acc[0] += Number(el.amount);
               return acc;
@@ -72,7 +73,7 @@ class MainContainer extends Component {
           [0, 0]
         );
 
-        console.log('balancesArray', balancesArray);
+        //console.log('balancesArray', balancesArray);
         this.setState({
           ...this.state,
           sumArray: balancesArray,
@@ -82,7 +83,43 @@ class MainContainer extends Component {
         // console.log('ALL BALANCES ', this.state.balance);
       });
   }
+  componentDidUpdate() {
+    // make call to our endpoint and populate
+    fetch('/api')
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          ...this.state,
+          transactions: data.transactions,
+          balance: data.balance,
+        });
 
+        // spread out our state and update our transactions array
+        const balancesArray = this.state.transactions.reduce(
+          (acc, el) => {
+            // console.log('el:', el);
+            if (el.account_id === 'bZPxWjNA5Wf4oJE95B1KTlajybobDVu3Gap6P') {
+              acc[0] += Number(el.amount);
+              return acc;
+            }
+            if (el.account_id === 'mv35n9oz4nuqLwonrkbRtGrA4ZlZ5ViA7xZQ8') {
+              acc[1] += Number(el.amount);
+              return acc;
+            }
+          },
+          [0, 0]
+        );
+
+        //console.log('balancesArray', balancesArray);
+        this.setState({
+          ...this.state,
+          sumArray: balancesArray,
+        });
+
+        //console.log('ALL TRANSACTIONS ', this.state.transactions);
+        // console.log('ALL BALANCES ', this.state.balance);
+      });
+  }
   render() {
     // console.log('CURRENT STATE OF MAIN CONTAINER ', this.state.balance);
     return (
