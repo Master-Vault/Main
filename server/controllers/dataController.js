@@ -100,7 +100,7 @@ dataController.syncBalance = (req, res, next) => {
 dataController.getTransaction = (req, res, next) => {
   dataModels.Transaction.find()
     .then((data) => {
-      console.log('DB QUERY ', data)
+      // console.log('DB QUERY ', data)
       res.locals.data = {};
       res.locals.data.transactions = data;
       return next();

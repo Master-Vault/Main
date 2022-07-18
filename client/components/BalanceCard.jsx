@@ -1,7 +1,10 @@
 import React from 'react';
 
 const BalanceCard = (props) => {
-  return <div> Test Balance Card</div>;
+  return (
+    <div className="BalanceCard Card">Test Balance Card
+    </div>
+  )
 };
 
 export default BalanceCard;
