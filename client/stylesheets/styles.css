@@ -1,3 +1,7 @@
+* {
+  font-family: 'Belgrano', serif;
+}
+
 .mainContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -15,6 +19,7 @@
   background: white;
   border-radius: 15px;
   box-shadow: 1px 0px 15px #00000030;
+  padding: 2rem;
 }
 
 .Navigation {
@@ -54,7 +59,47 @@
 }
 
 .TransactionsCard {
-  max-height: 400px;
+  max-height: 525px;
   grid-area: Transactions;
   overflow-y: scroll;
+}
+
+.transactionItems {
+  display: flex;
+  padding: 10px 0;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 1px 0px 15px #00000030;
+  padding: 1rem;
+  margin: 1rem 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.transactions-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHeader {
+  font-size: 1.25rem;
+  font-weight: 600;
+  background-image: linear-gradient(to left, #553c9a, #b393d3);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.name {
+  font-size: 1rem;
+}
+
+.date,
+.category {
+  font-size: 0.75rem;
+  color: rgb(94, 92, 92);
+}
+
+.date {
+  padding: 10px 0;
 }

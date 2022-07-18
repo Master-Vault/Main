@@ -1,10 +1,12 @@
 import React from 'react';
 
 const MonthlyIncomeCard = (props) => {
+  const { monthlyIncome } = props;
   return (
-    <div className="MonthlyIncomeCard Card"> Test Monthly Income Card
+    <div>
+      <div className='cardHeader Card'> Monthly Income {monthlyIncome} </div>
     </div>
-  )
+  );
 };
 
 export default MonthlyIncomeCard;

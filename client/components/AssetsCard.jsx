@@ -1,10 +1,7 @@
 import React from 'react';
 
 const AssetsCard = (props) => {
-  return (
-    <div className="AssetsCard Card">Test Assets Card
-    </div>
-  )
+  return <div className='cardHeader Card'>Assets</div>;
 };
 
 export default AssetsCard;
