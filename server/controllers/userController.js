@@ -13,7 +13,6 @@ userController.createUser = (req, res, next) => {
   const { username, password } = req.body;
   console.log(username);
 
-  //create user
   UserModels.UserLogin.create({
     username,
     password,
@@ -44,6 +43,7 @@ userController.verifyUser = async (req, res, next) => {
     const comparePass = await bcrypt.compare(password, queryResult.password);
     if (!queryResult || !comparePass) {
       console.log('Username or password was incorrect.');
+      return next('Username or password was incorrect.');
     } else {
       console.log('logged in successfully');
       res.locals.user = queryResult;
