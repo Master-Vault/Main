@@ -1,6 +1,15 @@
 import React, { useState, useEffect, Component } from 'react';
-import TransactionsCard from '../components/TransactionsCard.jsx';
+import '../stylesheets/styles.css';
+import Navigation from '../components/Navigation.jsx';
+import MonthlyIncomeCard from '../components/MonthlyIncomeCard.jsx';
+import MonthlyExpenseCard from '../components/MonthlyExpenseCard.jsx';
+import CashFlowCard from '../components/CashFlowCard.jsx';
+import ForecastCard from '../components/ForecastCard.jsx';
+import AssetsCard from '../components/AssetsCard.jsx';
+import BudgetCard from '../components/BudgetCard.jsx';
 import BalanceCard from '../components/BalanceCard.jsx';
+import TrendChartCard from '../components/TrendChartCard.jsx';
+import TransactionsCard from '../components/TransactionsCard.jsx';
 
 class MainContainer extends Component {
   constructor(props) {
@@ -16,7 +25,6 @@ class MainContainer extends Component {
     fetch('/api')
       .then((response) => response.json())
       .then((data) => {
-        console.log('RESPONSE ', data);
         // spread out our state and update our transactions array
         this.setState({
           ...this.state,
@@ -24,17 +32,26 @@ class MainContainer extends Component {
           balance: data.balance,
         });
         //console.log('ALL TRANSACTIONS ', this.state.transactions);
-        console.log('ALL BALANCES ', this.state.balance);
+        // console.log('ALL BALANCES ', this.state.balance);
       });
   }
 
   render() {
-    console.log('CURRENT STATE OF MAIN CONTAINER ', this.state);
+    // console.log('CURRENT STATE OF MAIN CONTAINER ', this.state);
     return (
       <>
-        <div>Test</div>
-        <BalanceCard />
-        <TransactionsCard transactions={this.state.transactions} />
+        <div className="mainContainer">
+          <Navigation />
+          <MonthlyIncomeCard />
+          <MonthlyExpenseCard />
+          <CashFlowCard />
+          <ForecastCard />
+          <AssetsCard />
+          <BudgetCard />
+          <BalanceCard />
+          <TrendChartCard />
+          <TransactionsCard transactions={this.state.transactions} />
+        </div>
       </>
     );
   }
