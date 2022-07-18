@@ -32,7 +32,7 @@ dataController.syncTransaction = (req, res, next) => {
 
     .then((data) => {
       res.locals.data = [];
-      for (let i = 0; i < data.transactions.length; i++) {
+      for (let i = 0; i < 10; i++) {
         // console.log('Success:', data.transactions[i]);
         const { account_id, amount, name, date, category } =
           data.transactions[i];
@@ -100,7 +100,7 @@ dataController.syncBalance = (req, res, next) => {
 dataController.getTransaction = (req, res, next) => {
   dataModels.Transaction.find()
     .then((data) => {
-      console.log('DB QUERY ', data);
+      console.log('DB QUERY ', data)
       res.locals.data = {};
       res.locals.data.transactions = data;
       return next();
