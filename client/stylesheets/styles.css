@@ -5,10 +5,10 @@
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
-    "Nav Nav Nav Nav"
-    "Monthly-Income Monthly-Expense Cash-Flow Forecast"
-    "Assets Budget Transactions Transactions"
-    "Balances Trend Transactions Transactions";
+    'Nav Nav Nav Nav'
+    'Monthly-Income Monthly-Expense Cash-Flow Forecast'
+    'Assets Budget Transactions Transactions'
+    'Balances Trend Transactions Transactions';
 }
 
 .Navigation {
@@ -48,6 +48,8 @@
 }
 
 .TransactionsCard {
+  max-height: 250px;
   grid-area: Transactions;
-  overflow: hidden;
+  overflow-y: scroll;
+  border: black solid 1px;
 }
