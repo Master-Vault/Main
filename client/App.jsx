@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import FrontPage from './components/FrontPage.js';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import MainContainer from '../client/containers/MainContainer.jsx';
+//import styles from './styles.scss';
 
 const App = () => {
-
   return (
-    <div className='router'>
-      <main>
-        <FrontPage />
-      </main>
+    <div className='app'>
+      <MainContainer />
     </div>
   );
 };
-
 export default App;
