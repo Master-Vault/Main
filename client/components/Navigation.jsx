@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 function Navigation(props) {
-  // const { hasNotLoggedIn } = props;
+  // const [synced, setSynced] = useState(false)
   const [data, setData] = useState({
     username: '',
     password: '',
@@ -22,6 +22,10 @@ function Navigation(props) {
       password,
     };
     e.preventDefault();
+    setData({
+      username: '',
+      password: '',
+    });
     console.log('About to fetch sync');
     fetch('/api/sync', {
       method: 'POST',

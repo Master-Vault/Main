@@ -11,7 +11,7 @@ const TransactionItem = (props) => {
         <div className='category'> {category[0]}</div>
       </div>
       <div className='transactions-right'>
-        <div className='amount'>${amount}</div>
+        <div className='amount'>${amount.toFixed(2)}</div>
       </div>
     </div>
   );
