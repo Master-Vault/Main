@@ -9,7 +9,7 @@ dataController.deleteDatabase = (req, res, next) => {
   dataModels.Balance.deleteMany({}).catch((err) => {
     console.log('dataController getBalance error: ', err);
   });
-  next();
+  return next();
 };
 
 dataController.syncTransaction = (req, res, next) => {
@@ -32,7 +32,7 @@ dataController.syncTransaction = (req, res, next) => {
 
     .then((data) => {
       res.locals.data = [];
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < data.transactions.length; i++) {
         // console.log('Success:', data.transactions[i]);
         const { account_id, amount, name, date, category } =
           data.transactions[i];
@@ -46,7 +46,7 @@ dataController.syncTransaction = (req, res, next) => {
         res.locals.data.push(data.transactions[i]);
       }
 
-      next();
+      return next();
     })
 
     .catch((error) => {
@@ -89,7 +89,7 @@ dataController.syncBalance = (req, res, next) => {
         // res.locals.data.push(data.accounts[i]);
       }
 
-      next();
+      return next();
     })
 
     .catch((error) => {

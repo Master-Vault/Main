@@ -2,10 +2,11 @@ import React from 'react';
 
 const MonthlyExpenseCard = (props) => {
   const { savings } = props;
-  const monthlyExpenses = Math.abs(savings[0]);
+  const monthlyExpenses = Math.abs(savings[0]).toFixed(2);
   return (
-    <div className='MonthlyExpenseCard Card'>
-      Monthly Expenses {monthlyExpenses}
+    <div className='Card'>
+      <div className='cardHeader'> Monthly Expenses </div>
+      <div>${monthlyExpenses}</div>
     </div>
   );
 };

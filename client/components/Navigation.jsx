@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Navigation(props) {
+  // const { hasNotLoggedIn } = props;
   const [data, setData] = useState({
     username: '',
     password: '',
@@ -8,6 +9,7 @@ function Navigation(props) {
   const { username, password } = data;
 
   const changeHandler = (e) => {
+    console.log('handler, ', e);
     setData({
       ...data,
       [e.target.name]: e.target.value,
@@ -20,16 +22,20 @@ function Navigation(props) {
       password,
     };
     e.preventDefault();
+    console.log('About to fetch sync');
     fetch('/api/sync', {
       method: 'POST',
       headers: {
-        'Content=Type': 'Application/JSON',
+        'Content-Type': 'Application/JSON',
       },
       body: JSON.stringify(body),
     })
-      .then((resp) => resp.json())
+      .then((resp) => {
+        console.log('fetched successfully to /api/sync');
+      })
       .catch((err) => console.log('Error: ', err));
   };
+
   return (
     <div className='Navigation'>
       {' '}
@@ -51,10 +57,17 @@ function Navigation(props) {
           onChange={changeHandler}
         />
         <br />
-        <input type='submit' name='Sync' value='Sync' />
+        <input type='submit' name='submit' value='Add Account to Dashboard' />
       </form>
     </div>
   );
 }
 
 export default Navigation;
+
+// useEffect(()=>{
+//   async function reloadPage(){
+//     location.reload();
+//    }
+//  reloadPage()
+// },[haveNotLoggedIn])
