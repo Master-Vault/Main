@@ -3,6 +3,10 @@
   margin: 5px;
 }
 
+img {
+  height: 60px;
+  width: 60px;
+}
 .mainContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -11,9 +15,9 @@
   grid-auto-flow: row;
   grid-template-areas:
     'Nav1 Nav1 Nav1 Nav4'
-    'Monthly-Income Monthly-Expense Cash-Flow Forecast'
-    'Assets Budget Transactions Transactions'
-    'Balances Trend Transactions Transactions';
+    'Balances Cash-Flow Transactions Transactions'
+    'Monthly-Expense Monthly-Expense Transactions Transactions'
+    'Trend Forecast Budget Assets';
 }
 
 .Card {
@@ -30,7 +34,6 @@
 .header-container {
   grid-area: Nav1;
   width: 100%;
-  display: flex;
 }
 
 .MonthlyIncomeCard {
@@ -67,7 +70,7 @@
 }
 
 .TransactionsCard {
-  max-height: 525px;
+  max-height: 100%;
   grid-area: Transactions;
   overflow-y: scroll;
 }

@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
-function Navigation(props) {
+function Navigation({ updateSynced }) {
   // const [synced, setSynced] = useState(false)
+
   const [data, setData] = useState({
     username: '',
     password: '',
   });
   const { username, password } = data;
 
+  //custom hook for updating username and password
   const changeHandler = (e) => {
     console.log('handler, ', e);
     setData({
@@ -16,16 +18,25 @@ function Navigation(props) {
     });
   };
 
+  // const invokeUpdateSynced = () => {
+  //   updateSynced();
+  // };
+
   const submitHandler = (e) => {
     const body = {
       username,
       password,
     };
+
     e.preventDefault();
+
     setData({
       username: '',
       password: '',
     });
+
+    // invokeUpdatedSynced();
+
     console.log('About to fetch sync');
     fetch('/api/sync', {
       method: 'POST',
@@ -37,13 +48,15 @@ function Navigation(props) {
       .then((resp) => {
         console.log('fetched successfully to /api/sync');
       })
+      .then(() => {
+        location.reload();
+      })
       .catch((err) => console.log('Error: ', err));
   };
 
   return (
     <div className='Navigation'>
       {' '}
-      Vault Login
       <form onSubmit={submitHandler}>
         <input
           type='text'

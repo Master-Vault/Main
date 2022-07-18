@@ -14,7 +14,7 @@ const BalanceCard = ({ balanceArray }) => {
 
   return (
     <div className='BalanceCard Card'>
-      <div className='cardHeader'>Balance</div>
+      <div className='cardHeader'>Balances</div>
       {balanceElems}
     </div>
   );

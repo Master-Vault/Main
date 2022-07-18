@@ -12,7 +12,7 @@ const TransactionsCard = (props) => {
 
   return (
     <div className='TransactionsCard Card'>
-      <div className='cardHeader'> Transaction History</div>
+      <div className='cardHeader'> Transactions</div>
       {transactions}
     </div>
   );
