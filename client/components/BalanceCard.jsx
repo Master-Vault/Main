@@ -2,7 +2,7 @@ import React from 'react';
 
 const BalanceCard = (props) => {
   return (
-    <div className="BalanceCard">Test Balance Card
+    <div className="BalanceCard Card">Test Balance Card
     </div>
   )
 };

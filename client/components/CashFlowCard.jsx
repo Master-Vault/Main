@@ -2,7 +2,7 @@ import React from 'react';
 
 const CashFlowCard = (props) => {
   return (
-    <div className="CashFlowCard">Test Cash Flow Card
+    <div className="CashFlowCard Card">Test Cash Flow Card
     </div>
   )
 };

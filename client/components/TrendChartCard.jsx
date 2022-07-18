@@ -2,7 +2,7 @@ import React from 'react';
 
 const TrendChartCard = (props) => {
   return (
-    <div className="TrendChartCard">Test Trend Chart Card
+    <div className="TrendChartCard Card">Test Trend Chart Card
     </div>
   )
 };

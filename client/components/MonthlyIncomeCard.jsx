@@ -2,7 +2,7 @@ import React from 'react';
 
 const MonthlyIncomeCard = (props) => {
   return (
-    <div className="MonthlyIncomeCard"> Test Monthly Income Card
+    <div className="MonthlyIncomeCard Card"> Test Monthly Income Card
     </div>
   )
 };
