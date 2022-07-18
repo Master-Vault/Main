@@ -1,10 +1,7 @@
 import React from 'react';
 
 const BudgetCard = (props) => {
-  return (
-    <div className="BudgetCard Card">Test Budget Card
-    </div>
-  )
+  return <div className='cardHeader Card'>Budget</div>;
 };
 
 export default BudgetCard;
