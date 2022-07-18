@@ -100,9 +100,10 @@ dataController.syncBalance = (req, res, next) => {
 dataController.getTransaction = (req, res, next) => {
   dataModels.Transaction.find()
     .then((data) => {
+      console.log('DB QUERY ', data)
       res.locals.data = {};
       res.locals.data.transactions = data;
-      next();
+      return next();
     })
     .catch((err) => {
       console.log('datacontroller getTransaction error: ', err);
@@ -113,7 +114,7 @@ dataController.getBalance = (req, res, next) => {
   dataModels.Balance.find()
     .then((data) => {
       res.locals.data.balance = data;
-      next();
+      return next();
     })
     .catch((err) => {
       console.log('datacontroller getBalance error: ', err);

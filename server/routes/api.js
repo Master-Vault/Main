@@ -19,7 +19,7 @@ router.get(
 router.get(
   '/',
   dataController.getTransaction,
-  dataController.getBalance,
+  // dataController.getBalance,
   (req, res) => {
     res.status(200).json(res.locals.data);
   }
