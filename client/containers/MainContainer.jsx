@@ -13,29 +13,6 @@ import TransactionsCard from '../components/TransactionsCard.jsx';
 import Header from '../components/Header.jsx';
 
 class MainContainer extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     transactions: [],
-  //     balance: [],
-  //   };
-  // }
-
-  // componentDidMount() {
-  //   // make call to our endpoint and populate
-  //   fetch('/api')
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       // spread out our state and update our transactions array
-  //       this.setState({
-  //         ...this.state,
-  //         transactions: data.transactions,
-  //         balance: data.balance,
-  //       });
-  //       //console.log('ALL TRANSACTIONS ', this.state.transactions);
-  //       // console.log('ALL BALANCES ', this.state.balance);
-  //     });
-  // }
   constructor(props) {
     super(props);
     this.state = {
@@ -43,8 +20,9 @@ class MainContainer extends Component {
       balance: [],
       sumArray: [],
       monthlyIncome: 5000,
-      synced: false,
+      // synced: false,
     };
+    // this.updateSynced = this.updateSynced.bind(this);
   }
 
   componentDidMount() {
@@ -82,7 +60,7 @@ class MainContainer extends Component {
 
   componentDidUpdate() {
     // make call to our endpoint and populate
-    if (!this.state.synced) {
+    if (this.state.synced) {
       fetch('/api')
         .then((response) => response.json())
         .then((data) => {
@@ -90,18 +68,23 @@ class MainContainer extends Component {
             ...this.state,
             transactions: data.transactions,
             balance: data.balance,
-            synced: true,
+            // synced: false,
           });
         });
     }
   }
 
+  // updateSynced() {
+  //   this.setState({
+  //     synced: true,
+  //   });
+  // }
   render() {
     return (
       <>
         <div className='mainContainer'>
           <Header />
-          <Navigation />
+          <Navigation updateSynced={this.updateSynced} />
           <MonthlyIncomeCard monthlyIncome={this.state.monthlyIncome} />
           <MonthlyExpenseCard savings={this.state.sumArray} />
           <CashFlowCard

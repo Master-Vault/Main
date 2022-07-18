@@ -12,14 +12,3 @@ const IndividualBalances = ({ account, info }) => {
   );
 };
 export default IndividualBalances;
-
-// return (
-//   <div className='balanceItems'>
-//     <div className='transactions-left'>
-//       <div className='acc_name'>{name}</div>
-//       <div className='balance_avail'> ${balance_available}</div>
-//       <div className='balance_current'> ${balance_current}</div>
-//     </div>
-//
-//   </div>
-// );
