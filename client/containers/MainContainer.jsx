@@ -43,6 +43,7 @@ class MainContainer extends Component {
       balance: [],
       sumArray: [],
       monthlyIncome: 5000,
+      synced: false,
     };
   }
 
@@ -58,9 +59,8 @@ class MainContainer extends Component {
         });
 
         // spread out our state and update our transactions array
-        const balancesArray = this.state.transactions.reduce(
+        const transactionsSum = this.state.transactions.reduce(
           (acc, el) => {
-            // console.log('el:', el);
             if (el.account_id === 'bZPxWjNA5Wf4oJE95B1KTlajybobDVu3Gap6P') {
               acc[0] += Number(el.amount);
               return acc;
@@ -73,58 +73,34 @@ class MainContainer extends Component {
           [0, 0]
         );
 
-        //console.log('balancesArray', balancesArray);
         this.setState({
           ...this.state,
-          sumArray: balancesArray,
+          sumArray: transactionsSum,
         });
-
-        //console.log('ALL TRANSACTIONS ', this.state.transactions);
-        // console.log('ALL BALANCES ', this.state.balance);
       });
   }
+
   componentDidUpdate() {
     // make call to our endpoint and populate
-    fetch('/api')
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({
-          ...this.state,
-          transactions: data.transactions,
-          balance: data.balance,
+    if (!this.state.synced) {
+      fetch('/api')
+        .then((response) => response.json())
+        .then((data) => {
+          this.setState({
+            ...this.state,
+            transactions: data.transactions,
+            balance: data.balance,
+            synced: true,
+          });
         });
-
-        // spread out our state and update our transactions array
-        const balancesArray = this.state.transactions.reduce(
-          (acc, el) => {
-            // console.log('el:', el);
-            if (el.account_id === 'bZPxWjNA5Wf4oJE95B1KTlajybobDVu3Gap6P') {
-              acc[0] += Number(el.amount);
-              return acc;
-            }
-            if (el.account_id === 'mv35n9oz4nuqLwonrkbRtGrA4ZlZ5ViA7xZQ8') {
-              acc[1] += Number(el.amount);
-              return acc;
-            }
-          },
-          [0, 0]
-        );
-
-        //console.log('balancesArray', balancesArray);
-        this.setState({
-          ...this.state,
-          sumArray: balancesArray,
-        });
-
-        //console.log('ALL TRANSACTIONS ', this.state.transactions);
-        // console.log('ALL BALANCES ', this.state.balance);
-      });
+    }
   }
+
   render() {
-    // console.log('CURRENT STATE OF MAIN CONTAINER ', this.state.balance);
     return (
       <>
         <div className='mainContainer'>
+          <Header />
           <Navigation />
           <MonthlyIncomeCard monthlyIncome={this.state.monthlyIncome} />
           <MonthlyExpenseCard savings={this.state.sumArray} />

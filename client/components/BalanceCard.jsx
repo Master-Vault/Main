@@ -13,7 +13,7 @@ const BalanceCard = ({ balanceArray }) => {
   });
 
   return (
-    <div className='Card'>
+    <div className='BalanceCard Card'>
       <div className='cardHeader'>Balance</div>
       {balanceElems}
     </div>
