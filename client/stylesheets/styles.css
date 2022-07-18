@@ -1,14 +1,20 @@
 .mainContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 150px 200px 200px 1fr;
-  gap: 0px 0px;
+  grid-template-rows: 100px 300px 300px 250px;
+  gap: 20px;
   grid-auto-flow: row;
   grid-template-areas:
     "Nav Nav Nav Nav"
     "Monthly-Income Monthly-Expense Cash-Flow Forecast"
     "Assets Budget Transactions Transactions"
     "Balances Trend Transactions Transactions";
+}
+
+.Card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 1px 0px 15px #00000030;
 }
 
 .Navigation {
@@ -49,5 +55,5 @@
 
 .TransactionsCard {
   grid-area: Transactions;
-  overflow: hidden;
+  overflow: scroll;
 }

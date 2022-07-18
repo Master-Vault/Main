@@ -11,7 +11,7 @@ const TransactionsCard = (props) => {
   });
 
   return (
-    <div className='TransactionsCard'>
+    <div className='TransactionsCard Card'>
       {transactions}
     </div>
   )
