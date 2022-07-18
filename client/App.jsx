@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import MainContainer from './MainContainer.jsx'
+import MainContainer from '../client/containers/MainContainer.jsx'
 //import styles from './styles.scss';
 
 const App = () => {
-  return(
+  return (
     <div className='app'>
-      <MainContainer/>
+      <MainContainer />
     </div>
   )
 }
