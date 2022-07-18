@@ -1,11 +1,13 @@
 import React, { useState, useEffect, Component } from 'react';
-import TransactionsCard from '../components/TransactionsCard.jsx'
+import TransactionsCard from '../components/TransactionsCard.jsx';
+import BalanceCard from '../components/BalanceCard.jsx';
 
 class MainContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       transactions: [],
+      balance: [],
     };
   }
 
@@ -14,13 +16,15 @@ class MainContainer extends Component {
     fetch('/api')
       .then((response) => response.json())
       .then((data) => {
-        console.log("RESPONSE ", data);
+        console.log('RESPONSE ', data);
         // spread out our state and update our transactions array
         this.setState({
           ...this.state,
           transactions: data.transactions,
+          balance: data.balance,
         });
-        console.log('ALL TRANSACTIONS ', this.state.transactions);
+        //console.log('ALL TRANSACTIONS ', this.state.transactions);
+        console.log('ALL BALANCES ', this.state.balance);
       });
   }
 
@@ -28,8 +32,8 @@ class MainContainer extends Component {
     console.log('CURRENT STATE OF MAIN CONTAINER ', this.state);
     return (
       <>
-        {/* <Navigation />
-      <Balance /> */}
+        <div>Test</div>
+        <BalanceCard />
         <TransactionsCard transactions={this.state.transactions} />
       </>
     );
