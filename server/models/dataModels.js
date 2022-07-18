@@ -1,18 +1,5 @@
-// import fetch from 'node-fetch';
 const mongoose = require('mongoose');
-// const axios = require('axios');
-
-const MONGO_URI =
-  'mongodb+srv://ian:gnmxAXDNxn6hE1kj@cluster0.2iyzt.mongodb.net/?retryWrites=true&w=majority';
-
-mongoose
-  .connect(MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    dbName: 'accounts',
-  })
-  .then(() => console.log('Connected to Mongo DB.'))
-  .catch((err) => console.log(err));
+// const Schema = mongoose.Schema;
 
 const transactionSchema = new mongoose.Schema({
   account_id: {
