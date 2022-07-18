@@ -2,7 +2,9 @@ import React from 'react';
 
 const AssetsCard = (props) => {
   return (
-    <div className="AssetsCard Card">Test Assets Card
+    <div className='stats-accounts-card stats-assets card'>
+      <div className='cardHeader'>Assets</div>
+      $91,000
     </div>
   )
 };

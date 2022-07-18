@@ -2,8 +2,12 @@ import React from 'react';
 
 const ForecastCard = (props) => {
   return (
-    <div className="ForecastCard Card">Test Forecast Card
-    </div>
+    <>
+      <div className='stats-overview-card'>
+        <div className='cardHeader'> Forecast </div>
+        <div className='cardAmount'>$63,151</div>
+      </div>
+    </>
   )
 };
 
