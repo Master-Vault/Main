@@ -5,7 +5,9 @@ const IndividualBalances = ({ account, info }) => {
 
   return (
     <div className='balanceItems'>
-      <div className='acc_name'>{name}</div>
+      <div className='acc_name'>
+        <strong>{name}</strong>
+      </div>
       <div className='balance'> Available Balance: ${balance_available}</div>
       <div className='balance'> Current Balance: ${balance_current}</div>
     </div>
